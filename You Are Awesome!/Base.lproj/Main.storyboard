@@ -27,7 +27,7 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image0" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-ey-uWa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-ey-uWa">
                                 <rect key="frame" x="16" y="190" width="343" height="550"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDn-FW-Yzc">
@@ -57,6 +57,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="awesomeImageView" destination="PIU-ey-uWa" id="bLp-qG-ncQ"/>
                         <outlet property="messageLabel" destination="cSY-6o-t4H" id="4Kc-h6-lLQ"/>
                     </connections>
                 </viewController>
@@ -65,7 +66,4 @@
             <point key="canvasLocation" x="-79.200000000000003" y="132.26600985221674"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="image0" width="475" height="633"/>
-    </resources>
 </document>
