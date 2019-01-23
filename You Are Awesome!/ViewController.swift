@@ -32,8 +32,19 @@ class ViewController: UIViewController {
                         "You Are Tremendous!",
                         "You have the design skills of Jony Ive!",
                         "I can't wait to download you're app!"]
+
+        var newIndex = -1
         
-        messageLabel.text = messages.randomElement()! //Need ! to ensure "Optional" doesn't show up
+        repeat {
+            newIndex = Int.random(in: 0..<messages.count)
+        } while index == newIndex
+        
+        index = newIndex
+        messageLabel.text = messages[index]
+        
+        
+        
+//        messageLabel.text = messages.randomElement()! //Need ! to ensure "Optional" doesn't show up
         
         
 //        messageLabel.text = messages[index]
