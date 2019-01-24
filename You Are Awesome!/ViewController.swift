@@ -11,12 +11,10 @@ import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var awesomeImageView: UIImageView!
-    
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var soundSwitch: UISwitch!
     
     var awesomePlayer = AVAudioPlayer()
-    
-    
     var index = -1
     var imageIndex = -1
     let numberOfImages = 10
@@ -59,7 +57,12 @@ class ViewController: UIViewController {
     
    
     
-
+    @IBAction func soundSwitch(_ sender: UISwitch) {
+        if soundSwitch.isOn == false && soundIndex != -1 {
+                awesomePlayer.stop()
+        }
+    }
+    
     @IBAction func showMessagePressed(_ sender: UIButton) {
         
         let messages = ["You Are Awesome!",
@@ -84,14 +87,20 @@ class ViewController: UIViewController {
         imageIndex = nonRepeatingRandom(lastNumber: imageIndex, maxValue: numberOfImages)
         awesomeImageView.image = UIImage(named: "image\(imageIndex)")
     
-        //Get Random Number for a Sound
-        
-        soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
-
-        //PLAY SOUND
-        
-        let soundName = "sound\(soundIndex)"
-        playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+    
+//        if soundSwitch.isOn == true {
+        if soundSwitch.isOn {
+            //Get Random Number for a Sound
+                //Put this inside so we don't get a bug - No need to update the sound when it is not being played
+            
+            soundIndex = nonRepeatingRandom(lastNumber: soundIndex, maxValue: numberOfSounds)
+            
+            //PLAY SOUND
+            
+            let soundName = "sound\(soundIndex)"
+            
+            playSound(soundName: soundName, audioPlayer: &awesomePlayer)
+        }
         
         
     }
